@@ -3,7 +3,9 @@ import {FormGroup} from '@angular/forms';
 
 @Injectable()
 export class AuthService {
-  private isAuth: boolean = false;
+  // true поставлен для удобства.
+  // false уберет автоматическую авторизацию на входе
+  private isAuth: boolean = true;
 
   personData = {
     admin: 'admin',

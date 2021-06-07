@@ -18,10 +18,10 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      login: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
-      // login: new FormControl(''),
-      // password: new FormControl('')
+      // login: new FormControl('', Validators.required),
+      // password: new FormControl('', Validators.required)
+      login: new FormControl(''),
+      password: new FormControl('')
     });
   }
 
