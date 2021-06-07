@@ -1,0 +1,49 @@
+.block{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  width: 155px;
+  border-bottom: 2px solid #606580;
+  cursor: pointer;
+  user-select: none;
+
+  font-family: Tahoma;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #8C99B2;
+
+  &-active{
+    color: #FFFFFF;
+    border-bottom-color: #0089FF;
+    animation: gradient-animation-stat 250ms linear forwards;
+  }
+}
+
+@keyframes gradient-animation-stat {
+  0% {
+    background: linear-gradient(0deg, rgba(35, 120, 217, 0.25) 0%, rgba(35, 120, 217, 0) 0%) no-repeat;
+  }
+  20% {
+    background: linear-gradient(0deg, rgba(35, 120, 217, 0.25) 0%, rgba(35, 120, 217, 0) 15%) no-repeat;
+
+  }
+  40% {
+    background: linear-gradient(0deg, rgba(35, 120, 217, 0.25) 0%, rgba(35, 120, 217, 0) 30%) no-repeat;
+
+  }
+  60% {
+    background: linear-gradient(0deg, rgba(35, 120, 217, 0.25) 0%, rgba(35, 120, 217, 0) 45%) no-repeat;
+
+  }
+  80% {
+    background: linear-gradient(0deg, rgba(35, 120, 217, 0.25) 0%, rgba(35, 120, 217, 0) 60%) no-repeat;
+
+  }
+  100% {
+    background: linear-gradient(0deg, rgba(35, 120, 217, 0.25) 0%, rgba(35, 120, 217, 0) 70%) no-repeat;
+
+  }
+
+}

@@ -1,0 +1,136 @@
+.task {
+
+  color: white;
+  max-width: 432px;
+  min-width: 333px;
+
+  &__header {
+    background: rgba(39, 42, 56, 0.5);
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+
+  }
+
+  &__abb {
+    margin-left: 25px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  &__description {
+    margin-left: auto;
+    display: flex;
+
+  }
+
+  &__headerStatus {
+    color: #606580;
+  }
+
+  &__iconTime {
+    fill: #606580;
+    width: 16px;
+    height: 17px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+  }
+
+  &__iconDesc {
+    fill: #0089FF;
+    width: 18px;
+    height: 18px;
+  }
+
+  &__body {
+    background: rgba(31, 34, 46, 0.5);
+    padding: 15px 68px 30px 20px;
+    margin: 1px 0 1px 0;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__text {
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    color: #8C99B2;
+  }
+
+  &__footer {
+    height: 47px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: rgba(39, 42, 56, 0.5);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__dateTimeWrapper {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+
+  &__dateTime {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+
+    &:before {
+      font-size: 12px;
+      white-space: nowrap;
+      content: 'Начало события:';
+    }
+  }
+
+  &__options {
+    display: flex;
+    align-items: center;
+  }
+
+  &__footerStatus {
+    font-size: 12px;
+    margin-right: 15px;
+    background: rgba(93, 96, 123, 0.2);
+    border-radius: 2px;
+    padding: 5px 13px 5px 13px;
+  }
+
+  &__bucketIcon {
+    fill:#606580;
+    height: 14px;
+    width: 14px;
+    &:hover{
+      fill: #8C99B2;
+      cursor: pointer;
+    }
+  }
+
+  &-highPriority{
+    .task__headerStatus {
+      color: red;
+    }
+
+    .task__iconTime {
+      fill: red;
+    }
+  }
+  &-mediumPriority{
+    .task__headerStatus {
+      color: orange;
+    }
+
+    .task__iconTime {
+      fill: orange;
+    }
+  }
+}

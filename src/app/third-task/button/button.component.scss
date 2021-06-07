@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.button {
+  min-width: 150px;
+  height: 30px;
+  background: rgba(48, 53, 73, 0.5);
+  border: none;
+  border-radius: 1px;
+  font-size: 13px;
+  padding: 7px 18px;
+  color: rgba(140, 153, 178, 1);
+  transition: 150ms;
+
+  &:hover {
+    background-color: rgba(0, 137, 255, 1);
+    color: white;
+  }
+  &:focus{
+    outline: none;
+  }
+  &:active{
+    background-color: rgb(0, 114, 212);
+  }
+
+}

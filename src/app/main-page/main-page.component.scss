@@ -1,0 +1,88 @@
+@mixin icon-svg($URL, $width, $height) {
+  width: $width;
+  height: $height;
+  -webkit-mask-image: url($URL);
+  -webkit-mask-size: $width $height;
+  -webkit-mask-repeat: no-repeat;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.wrapper-mainPage {
+  background: #1b1e27;
+  height: 100vh;
+}
+
+.header {
+  margin-bottom: 5%;
+  width: 100%;
+  display: flex;
+
+  &__buttons {
+    width: 100%;
+    background: #272A38;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px 12px;
+    margin-right: 1px;
+  }
+
+  &__btn {
+    color: #D7E2F2;
+    width: 147px;
+    height: 40px;
+    background: #303549;
+    border-radius: 2px;
+    line-height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 100ms;
+
+    &-active {
+      background: #0089FF;
+      color: white;
+    }
+
+    &:hover {
+      border: solid #606580 1px;
+    }
+  }
+
+  &__logout {
+    background: #272A38;
+    margin-left: auto;
+    width: 65px;
+    display: inline-block;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover .header__logoutIcon {
+      background: #0089FF;
+    }
+  }
+
+  &__logoutIcon {
+    width: 25px;
+    height: 26px;
+    -webkit-mask-image: url("../../assets/Login.svg");
+    -webkit-mask-size: 25px 26px;
+    -webkit-mask-repeat: no-repeat;
+    background: #606580;
+
+  }
+
+
+}

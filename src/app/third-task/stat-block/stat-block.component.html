@@ -1,0 +1,10 @@
+<div class="block"
+     [ngClass]="{'block-active': this.stat.title === this.appS.filters.statusFilter}"
+>
+  <div class="block__title">
+    {{this.stat.title}}
+  </div>
+  <div class="block__number">
+    {{this.stat.number}}
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="wrapper-form">
+  <form class="form" [formGroup]="this.form" (ngSubmit)="submit()">
+    <div class="form__header">
+      <div class="form__logo"></div>
+      <div class="form__name"><span class="blue-text">Цифровая</span> индустриальная экосистема</div>
+    </div>
+    <div class="form__inputs">
+
+      <div class="form__inputWrapper" #loginW>
+        <div class="form__icon form__icon-login"></div>
+        <input type="text" size='10' class="form__input" placeholder="Логин" formControlName="login">
+      </div>
+      <div class="form__inputWrapper" #passwordW>
+        <div class="form__icon form__icon-password">
+        </div>
+        <input type="password" class="form__input" placeholder="Пароль" formControlName="password" #pInput>
+        <div class="form__passwordEye" (click)="this.toggleEye()" #eye></div>
+      </div>
+    </div>
+    <button class="form__btn" type="submit" [disabled]="form.invalid">Войти</button>
+  </form>
+</div>
+

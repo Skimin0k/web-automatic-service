@@ -1,0 +1,27 @@
+<div class="wrapper-mainPage">
+  <div class="header">
+    <div class="header__buttons">
+      <a routerLink="/main/first-low">
+        <div routerLinkActive="header__btn-active" class="header__btn">Первое задание 1</div>
+      </a>
+      <a routerLink="/main/first-medium">
+        <div routerLinkActive="header__btn-active" class="header__btn">Первое задание 2</div>
+      </a>
+      <a routerLink="/main/first-high">
+        <div routerLinkActive="header__btn-active" class="header__btn">Первое задание 3</div>
+      </a>
+      <a routerLink="/main/second">
+        <div routerLinkActive="header__btn-active" class="header__btn">Второе задание</div>
+      </a>
+      <a routerLink="/main/third">
+        <div routerLinkActive="header__btn-active" class="header__btn">Третье задание</div>
+      </a>
+    </div>
+    <a routerLink="" class="header__logout" (click)="logout()">
+      <div class="header__logoutIcon"></div>
+    </a>
+  </div>
+  <router-outlet></router-outlet>
+
+
+</div>

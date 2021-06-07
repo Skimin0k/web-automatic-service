@@ -1,0 +1,43 @@
+<div class="wrapper-secondTask">
+  <div class="header">
+    <div class="header__icon"></div>
+    <div class="header__title">Показатели</div>
+    <div class="header__menuIcon"></div>
+  </div>
+
+  <div class="body">
+    <div class="body__headLine">
+      <div class="headLine__column headLine__column-param">Параметры</div>
+      <div class="headLine__column">Факт</div>
+      <div class="headLine__column">Модель</div>
+    </div>
+
+    <div class="body__content">
+
+      <div class="dropMenu dropMenu-closed" *ngFor="let line of this.secondS.secondTaskData; let i = index" #dropMenu>
+        <div class="dropMenu__mainLine" (click)="dropMenu.classList.toggle('dropMenu-closed')">
+          <div class="dropMenu__icon"></div>
+          <div class="dropMenu__title">{{line.title}}</div>
+          <div class="dropMenu__stat">Отклонений: {{this.offsets[i]}}</div>
+        </div>
+        <div class="dropMenu__wrapper">
+
+          <div class="dropMenu__subLine" *ngFor="let subline of line.subLines"
+              [class.dropMenu__subLine-orange] = "subline.model !== subline.fact"
+               (click)="this.clickSubLine(sublineDiv);"
+               #sublineDiv
+          >
+            <div class="subLine__left">
+              <div class="subLine__title"><span>{{subline.title}}</span></div>
+              <div class="subLine__units">{{subline.units}}</div>
+            </div>
+            <div class="subLine__middle">{{subline.fact}}</div>
+            <div class="subLine__right">{{subline.model}}</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

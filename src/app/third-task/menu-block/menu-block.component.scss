@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.menu {
+  color: #8C99B2;
+  display: inline-block;
+  font-size: 13px;
+  position: relative;
+
+  &__mainLine {
+    margin-right: 15px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 120px;
+
+  }
+
+  &__mainLineCover {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 15px;
+    height: 30px;
+    background: rgba(18, 21, 30, 0.5);
+    border: 1px solid rgba(96, 101, 128, 0.25);
+    cursor: pointer;
+    user-select: none;
+
+
+    &:hover {
+      background: rgba(18, 21, 30, 0.6);
+    }
+
+  }
+
+  &__arrowIcon {
+    width: 12px;
+    height: 7px;
+
+    stroke: #4B5169;
+  }
+
+  &__wrapper {
+    transition: 150ms ease-out;
+    position: absolute;
+    width: 100%;
+    transform-origin: top;
+    opacity: 1;
+    cursor: pointer;
+    user-select: none;
+    max-height: 150px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &--closed {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+  }
+
+  &__block {
+    background: rgb(18, 21, 30);
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: 50ms;
+
+    &:hover {
+      background: rgb(26, 28, 40);
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(18, 21, 30, 1);
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(96, 101, 128, 0.5);
+}
+
+
+
+

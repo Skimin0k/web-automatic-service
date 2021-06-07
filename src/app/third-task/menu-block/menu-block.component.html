@@ -1,0 +1,17 @@
+<div class="menu" #host>
+  <div class="menu__mainLineCover" (click)="wrapper.classList.toggle('menu__wrapper--closed')">
+    <div class="menu__mainLine" [innerHTML]="this.targetFilter === 'priorityFilter'? this.appS.filters.priorityFilter : this.appS.filters.categoryFilter">
+    </div>
+    <div class="menu__arrowIcon">
+      <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path opacity="0.9" d="M11.15 0.790039L6.14001 5.79004L1.13 0.790039" stroke-miterlimit="10" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <div class="menu__wrapper menu__wrapper--closed" #wrapper>
+    <div class="menu__block"
+         *ngFor="let item of this.data"
+         (click)="click($event)"
+    >{{item}}</div>
+  </div>
+</div>

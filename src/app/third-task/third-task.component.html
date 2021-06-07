@@ -1,0 +1,100 @@
+<div class="flex-wrapper">
+  <div class="wrapper">
+    <div class="header">
+      <div class="header__leftGroup">
+        <div class="header__msgIcon">
+          <svg width="19" height="14" viewBox="0 0 19 14" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M1.7741 1.7189C2.0688 1.438 2.4691 1.2667 2.9133 1.2667H16.0867C16.5309 1.2667 16.9312 1.438 17.2258 1.7188L9.4999 8.529L1.7741 1.7189ZM1.2667 2.9601V10.45C1.2667 10.462 1.2668 10.474 1.267 10.486L3.5415 8.744C3.8192 8.531 4.2167 8.584 4.4294 8.861C4.6421 9.139 4.5894 9.537 4.3117 9.749L1.8028 11.671C2.0945 11.936 2.4833 12.097 2.9133 12.097H16.0867C16.5144 12.097 16.9014 11.938 17.1926 11.675L14.63 9.753C14.3501 9.543 14.2934 9.146 14.5033 8.867C14.7132 8.587 15.1101 8.53 15.39 8.74L17.7327 10.497C17.7331 10.481 17.7333 10.466 17.7333 10.45V2.96L9.9187 9.848C9.6794 10.059 9.3205 10.059 9.0811 9.848L1.2667 2.9601ZM2.9133 0C1.2969 0 0 1.2969 0 2.9133V10.45C0 12.066 1.2969 13.363 2.9133 13.363H16.0867C17.7031 13.363 19 12.066 19 10.45V2.9133C19 1.2969 17.7031 0 16.0867 0H2.9133Z"/>
+          </svg>
+        </div>
+        <div class="header__title">
+          События
+        </div>
+      </div>
+      <div class="header__rightGroup">
+        <div class="header__postsIcon" (click)="this.togggleDisplay()"
+             [ngClass]="{'header__activeIcon': this.appService.currentDisplay=== 'long'}">
+          <svg width="13" height="12" viewBox="0 0 13 12" xmlns="http://www.w3.org/2000/svg">
+            <rect width="12.3478" height="2.23656" rx="1.11828"/>
+            <rect y="4.5896" width="12.3478" height="2.23656" rx="1.11828"/>
+            <rect y="9.17822" width="12.3478" height="2.23656" rx="1.11828"/>
+          </svg>
+        </div>
+        <div class="header__tasksIcon" (click)="this.togggleDisplay()"
+             [ngClass]="{'header__activeIcon': this.appService.currentDisplay === 'short'}">
+          <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+            <rect width="4.95645" height="4.95425" rx="1"/>
+            <rect x="6.66748" width="4.95645" height="4.95425" rx="1"/>
+            <rect y="6.46069" width="4.95645" height="4.95425" rx="1"/>
+            <rect x="6.66748" y="6.46069" width="4.95645" height="4.95425" rx="1"/>
+          </svg>
+
+        </div>
+        <div class="header__dotsIcon">
+          <svg width="3" height="14" viewBox="0 0 3 14" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M1.30005 2.80019C2.00005 2.80019 2.6001 2.20019 2.6001 1.50019C2.6001 0.800191 2.00005 0.200195 1.30005 0.200195C0.600049 0.200195 0 0.800191 0 1.50019C0 2.20019 0.600049 2.80019 1.30005 2.80019Z"/>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M1.30005 8.3C2.00005 8.3 2.6001 7.69999 2.6001 6.99999C2.6001 6.30019 2.00005 5.7002 1.30005 5.7002C0.600049 5.7002 0 6.30019 0 6.99999C0 7.69999 0.600049 8.3 1.30005 8.3Z"/>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M1.30005 13.8C2.00005 13.8 2.6001 13.2 2.6001 12.5C2.6001 11.8 2.00005 11.2 1.30005 11.2C0.600049 11.2 0 11.8 0 12.5C0 13.2 0.600049 13.8 1.30005 13.8Z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="body__header">
+
+        <app-menu-block
+          [targetFilter]="'categoryFilter'"
+          [data]="this.appService.dataForDM"
+        ></app-menu-block>
+        <app-menu-block
+          [targetFilter]="'priorityFilter'"
+          [data]="['Выбрать все', 'Низкий приоритет', 'Средний приоритет', 'Высокий приоритет']"
+        ></app-menu-block>
+
+        <app-button></app-button>
+        <input type="text" name="search" class="body__search" placeholder="Поиск"
+               [(ngModel)]="this.appService.filters.searchFilter"
+               (keyup)="searchItem()">
+      </div>
+      <div class="body__contentWrapper">
+        <div class="body__content" [ngSwitch]="this.appService.currentDisplay">
+          <div *ngSwitchCase="'long'" class="body__content-longBlocks">
+            <app-post
+              *ngFor="let post of this.appService.showPosts; let i = index"
+              [data]=post
+              [index]="i+1"
+            ></app-post>
+          </div>
+          <div *ngSwitchCase="'short'" class="body__content-shortBlocks">
+            <app-task
+              *ngFor="let task of this.appService.showTasks; let i = index"
+              [data]=task
+              [index]="i+1"
+            >
+            </app-task>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer__upperLine">
+        <app-stat-block
+          *ngFor="let item of this.statS.statData"
+          [stat]=item
+        ></app-stat-block>
+      </div>
+      <div class="footer__bottomLine">
+        <app-section
+          *ngFor="let item of this.sectionS.sections"
+          [data]="item"
+        ></app-section>
+      </div>
+    </div>
+
+  </div>
+</div>
+
